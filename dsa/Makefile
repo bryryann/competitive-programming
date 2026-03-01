@@ -1,2 +1,2 @@
 compile:
-	g++ -Iinclude src/*.cpp -o app
+	g++ ./src/main.cpp -o app

@@ -1,14 +1,12 @@
-#include "LinkedList.h"
+#include <iostream>
+#include "./BinaryTree.cpp"
+
+using namespace BinaryTree;
 
 int main() {
-    LinkedList list;
+    Node *head = new_node(0);
 
-    list.insertFront(2);
-    list.insertFront(1);
-    list.insertBack(3);
-    list.insertBack(4);
-
-    list.display();
+    std::cout << head->key << std::endl;
 
     return 0;
 }
