@@ -70,4 +70,48 @@ void insert_ordered(Node **root, int key) {
     current->next = node;
 }
 
+void sum_pairs(Node *root, int target) {
+    int sum;
+
+    Node *head = root;
+    Node *tail = root;
+    while (tail->next != nullptr) {
+        tail = tail->next;
+    }
+
+    while (head != tail && head->prev != tail) {
+        sum = head->key + tail->key;
+
+        if (sum == target) {
+            std::cout << "(" << head->key << "," << tail->key << ")\n";
+            head = head->next;
+            tail = tail->prev;
+        }
+        else if (sum < target) {
+            head = head->next;
+        }
+        else if (sum > target) {
+            tail = tail->prev;
+        }
+    }
+}
+
+Node* reverse_list(Node *ptr) {
+    Node *tmp = nullptr;
+
+    while (ptr != nullptr) {
+        tmp = ptr->prev;
+        ptr->prev = ptr->next;
+        ptr->next = tmp;
+
+        ptr = ptr->prev;
+    }
+
+    if (tmp != nullptr) {
+        ptr = tmp->prev;
+    }
+
+    return ptr;
+}
+
 }
